@@ -1,4 +1,5 @@
 from random import randint
+#Used to find the average amount of flips for X amount of heads in a row at Y seperate amount of times
 
 test_case = int(input("How many heads would you like to flip in a row?\n"))
 volume = int(input(f"How many times would you like to flip heads {test_case} in a row?\n"))

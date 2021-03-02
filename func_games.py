@@ -6,6 +6,8 @@ def game_selector():
         play_rps()
     elif game.lower() == "number guesser":
         play_number()
+    elif game.lower() == "jokes":
+        the_joker()
     else: 
         print("Sorry, but please enter a valid game")
         game_selector()
@@ -60,4 +62,18 @@ def play_number():
             guess_count += 1
             player_guess = int(input())
         print(f"Wow you guessed {comp_guess} correctly in {guess_count} guesses")
+    finish_game()
+        
+def the_joker():
+    joke = input("What joke what you like to look for?\n")
+    res = requests.get("https://icanhazdadjoke.com/search", headers={"Accept": "application/json"}, params={"term": joke})
+    res = res.json()
+    joke_len = res.get("total_jokes")
+    if joke_len > 1:
+        print(f"I have {joke_len} total {joke} jokes, heres one:")
+        print(res.get("results")[randint(0,joke_len)].get("joke"))
+    elif joke_len == 1:
+        print(f"I have {joke_len} joke about {joke}, here it is:")
+        print(res.get("results")[0].get("joke"))
+    else: print("Sorry I have no jokes about that")
     finish_game()

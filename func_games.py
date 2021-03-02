@@ -1,7 +1,7 @@
 from random import randint
 
 def game_selector():
-    game = input("Which game would you like to play?\nRPS\nnumber guesser\n")
+    game = input("Which game would you like to play?\nRPS\number guesser\njokes\n")
     if game.lower() == "rps":
         play_rps()
     elif game.lower() == "number guesser":
